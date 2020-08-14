@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { isPC } from '@U/pcOrPhoneUtil';
+import Table from '@C/Table';
+import { HashRouter, Route } from 'react-router-dom';
+import RouterConfig from '@/config/RouterConfig';
+import './App.scss';
 
-function App() {
+const App: FC = () => {
+  let isPCNow = isPC();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "app-main-div">
+        {/* PC界面刷新出Table相关UI */}
+        {
+          isPCNow ? <Table /> : ''
+        }
+        <HashRouter basename = "/blog">
+          {
+            RouterConfig.map((item, index) => {
+              return (
+                <Route 
+                  key = { `route-${index}` } 
+                  path = { item.path } 
+                  exact = { item.exact } 
+                  component = { item.component } 
+                />
+              )
+            })
+          }
+        </HashRouter>
     </div>
   );
 }

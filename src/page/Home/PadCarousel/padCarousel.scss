@@ -1,0 +1,186 @@
+#carousel-main-div{
+    position: relative;
+    top: 85px;
+    left: 80px;
+    width: 420px;
+    height: 201px;
+    padding: 10px;
+    transform: rotate(350deg); 
+    -o-transform: rotate(350deg); 
+    -webkit-transform: rotate(350deg); 
+    -moz-transform: rotate(350deg); 
+    z-index: 1000;
+    background-image: linear-gradient(176deg, #C9C9C9 -15%, #000000,#000000,#000000 );
+    box-shadow: 5px 5px 6px rgba(0,0,0,0.4); 
+    border-radius: 10px;
+}
+.carousel-banner-div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.carousel-banner-img{
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    max-height: 280px;
+}
+.carousel-banner-p{
+    display: block;
+    position: absolute;
+    height: 25px;
+    margin: 0;
+    width: auto;
+    left: 2px;
+    top: 152px;
+    z-index: 999;
+    background-image: linear-gradient( transparent, rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.7), rgba(0,0,0,0.9) );
+    color: white;
+    font: bold 16px/25px Arial, Helvetica, sans-serif;
+}
+.ant-carousel{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.ant-carousel,.slick-dots{
+    width: 100%;
+    text-align: center;
+}
+.ant-carousel .slick-dots li.slick-active button{
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+}
+.slick-slider, .slick-initialized, .slick-list, .slick-track{
+    width: 100%;
+    height: 100%;
+}
+.slick-dots, .slick-dots-bottom{
+    background-image: linear-gradient( transparent,rgba(0,0,0,0.2),rgba(0,0,0,0.3),rgba(0,0,0,0.4),rgba(0,0,0,0.6), rgba(0,0,0,0.7) );
+}
+.ant-carousel .slick-dots li.slick-active{
+    width: 12px;
+}
+.ant-carousel .slick-dots li{
+    padding-top: 5px;
+    width: 12px;
+}
+.ant-carousel .slick-dots li button{
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+}
+.index-main-div ul{
+    position: relative;
+    height: 25px;
+    bottom: 0px;
+}
+.ant-carousel .slick-dots-bottom{
+    bottom: -3px;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width: 1920px) {
+    #carousel-main-div{
+        top: 160px;
+        left: 120px;
+        width: 470px;
+        height: 226px;
+        box-shadow: 5px 5px 6px rgba(0,0,0,0.4); 
+        border-radius: 10px;
+    }
+    .carousel-banner-p{
+        display: block;
+        position: absolute;
+        width: auto;
+        left: 0px;
+        height: 30px;
+        top: 172px;
+        z-index: 999;
+        font: bold 18px/30px Arial, Helvetica, sans-serif;
+    }
+    .ant-carousel .slick-dots-bottom{
+        bottom: 0px;
+        margin: 0;
+        padding: 0;
+    }
+    .ant-carousel .slick-dots li.slick-active button{
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+    }
+    .ant-carousel .slick-dots li.slick-active button{
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+    }
+}
+/* iphone6/7/8 plus */
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
+    #carousel-main-div{
+        position: relative;
+        top: 20px;
+        left: 0px;
+        width: 100%;
+        height: 166px;
+        padding: 10px;
+        transform: none; 
+        -o-transform: none; 
+        -webkit-transform: none; 
+        -moz-transform: none; 
+        z-index: 1000;
+        background-image: linear-gradient(to bottom right, #C9C9C9 , #000000,#000000,#000000 );
+        border-radius: 10px;
+    }
+    .carousel-banner-p{
+        display: block;
+        position: absolute;
+        height: 25px;
+        margin: 0;
+        width: auto;
+        left: 0px;
+        top: 121px;
+        z-index: 999;
+        background-image: linear-gradient( transparent, rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.7), rgba(0,0,0,0.9) );
+        color: white;
+        font: bold 16px/25px Arial, Helvetica, sans-serif;
+    }
+} 
+@media (min-device-height: 568px) 
+    and (max-device-height: 823px)
+    and (min-device-width: 320px)
+    and (max-device-width: 411px)  
+    and (-webkit-min-device-pixel-ratio:2){
+        #carousel-main-div{
+            position: relative;
+            top: 20px;
+            left: 0px;
+            width: 100%;
+            height: 166px;
+            padding: 10px;
+            transform: none; 
+            -o-transform: none; 
+            -webkit-transform: none; 
+            -moz-transform: none; 
+            z-index: 1000;
+            background-image: linear-gradient(to bottom right, #C9C9C9 , #000000,#000000,#000000 );
+            border-radius: 10px;
+        }
+        .carousel-banner-p{
+            display: block;
+            position: absolute;
+            height: 25px;
+            margin: 0;
+            width: auto;
+            left: 0px;
+            top: 121px;
+            z-index: 999;
+            background-image: linear-gradient( transparent, rgba(0,0,0,0.4), rgba(0,0,0,0.5), rgba(0,0,0,0.7), rgba(0,0,0,0.9) );
+            color: white;
+            font: bold 16px/25px Arial, Helvetica, sans-serif;
+        }
+} 

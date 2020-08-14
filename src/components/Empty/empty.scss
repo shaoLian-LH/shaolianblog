@@ -1,0 +1,32 @@
+.empty-div{
+    position: relative;
+    width: 80%;
+    top: 30%;
+    left: 10%;
+    height: 200px;
+    border: dashed 2px rgba( 236, 227, 217, 0.8);
+    text-align: center;
+    .empty-hint{
+        position: relative;
+        font-size: 48px;
+        font-weight: bold;
+        color: rgba( 236, 227, 217, 1);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    .empty-p{
+        margin-top: 10px;
+        display: block;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        color:rgba( 236, 227, 217, 0.8);
+    }
+    img{
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 390px;
+        height: 160px;
+    }
+}

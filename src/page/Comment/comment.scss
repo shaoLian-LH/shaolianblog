@@ -1,0 +1,83 @@
+::selection {
+    background-color: rgba( 136, 100, 82, 0.9) ;
+    color: #f2f2f2;
+}
+.comment-detail-content-div{
+    position: relative;
+    width: auto;
+    left: 1%;
+}
+
+.comment-back-home-arrow-div{
+    position: absolute;
+    left: 25px;
+    top: 45%;
+    animation: fadeIn ease-out 0.8s 1;
+}
+.comment-back-home-arrow {
+    display: inline-block;
+    height: 81px;
+    width: 106px;
+    border-width: 11px 11px 0 0;
+    border-image: -webkit-linear-gradient(#ddd,#000) 30 30;
+    border-image: -moz-linear-gradient(#ddd,#000) 30 30;
+    border-image: linear-gradient(#ddd,#000) 30 30;
+    border-style: solid;
+    -webkit-transform: matrix(-0.3, 0.51,0.51, 0.51, 0, 0);
+    transform: matrix(-0.3, 0.51, 0.51, 0.51, 0, 0) skew(20deg);
+    position: absolute;
+}
+.comment-back-home-arrow:hover{
+    box-shadow: 5px -5px 5px #f2f2f2;
+}
+.comment-page-component{
+    position: absolute;
+    right: 40px;
+    bottom: 120px;
+}
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadeIn{
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeIn{
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadeIn{
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

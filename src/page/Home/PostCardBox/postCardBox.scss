@@ -1,0 +1,65 @@
+.postcard-box-main-div {
+    position: absolute;
+    bottom: 180px;
+    right: 190px;
+    width: 295px;
+    height: 165px;
+    background: linear-gradient(-34deg, #CE985E -45%, #BD8954 27%, #E1B787 108%);
+    transform: rotate(8deg);
+    text-align: center;
+    box-shadow: 4px 4px 9px 0px rgba(0, 0, 0, 0.65);
+    border-radius: 5px;
+
+    .postcard-box-inset-div {
+        position: relative;
+        width: 80%;
+        height: 70%;
+        left: calc(50% - 40%);
+        top: 15%;
+        border-radius: 14px;
+        border: solid 1px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(#CE985E -45%, #BD8954);
+        box-shadow: inset 4px 6px 10px rgba(0, 0, 0, 0.8);
+        overflow: hidden;
+        &:hover {
+            overflow: visible;
+            .postcord-card-div {
+                background: #f2f2f2;
+                transform: rotate(0deg) scale(1.3);
+            }
+        }
+    }
+}
+
+.postcord-card-div {
+    position: absolute;
+    z-index: 20;
+    width: 198px;
+    height: 90px;
+    background-color: white;
+    bottom: calc(50% - 45px);
+    right: calc(50% - 99px);
+    transform: rotate(-15deg);
+    background: f2f2f2;
+    cursor: pointer;
+    .postcard-hint {
+        position: absolute;
+        color: rgba(0,0,0,0.7);
+        font-size: 28px;
+        font-weight: bold;
+        left: 30%;
+        top: 22%;
+        -moz-user-select:none; 
+        -webkit-user-select:none; 
+        -ms-user-select:none; 
+        -khtml-user-select:none; 
+        user-select:none;
+    }
+    transition: all ease-out 0.8s ;
+    
+}
+@media screen and (max-width: 800px) {
+    .postcard-box-main-div {
+        display: none;
+    }
+} 

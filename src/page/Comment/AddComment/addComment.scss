@@ -1,0 +1,236 @@
+html {
+    --antd-wave-shadow-color: none;
+}
+#add-comment-main-div{
+    width: 80px;
+    height: 100px;
+    background: transparent;
+    text-align: center;
+    z-index: 999;
+}
+.add-comment-paper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 60%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+}
+.add-comment-paper-before{
+    white-space: pre;
+    font-weight: bold;
+    background-image: inherit;
+    position: absolute;
+    top: 7px;
+    left: -10px;
+    transform: rotate(10deg);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: 0.8s;
+    box-shadow: 5px 5px 7px rgba( 0, 0, 0, 0.4);
+    background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 60%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+    &:hover{
+        box-shadow: 5px 5px 10px rgba( 0, 0, 0, 0.6);
+        transition: 0.8s;
+        transform: rotate(20deg) rotateY(25deg) scale(1.2);
+    }
+}
+
+
+#add-comment-modal-main-div {
+    position: absolute;
+    z-index: 999;
+    top: 18%;
+    left: calc( 50% - 130px);
+    height: 395px;
+    width: 300px;
+    background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 145%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+    padding: 15px 10px;
+    box-shadow: 4px 4px 7px rgba( 0, 0, 0, 0.4);
+    
+    .add-commnet-modal-line-div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    .add-commnet-modal-line-div:first-child {
+        margin-top: 10px;
+    }
+    .add-commnet-modal-line-div:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .add-comment-modal-title {
+        font-weight: bold;
+        font-size: 16px;
+        font-family: sans-serif;
+        color: rgba( 0, 0, 0, 1);
+        .close-modal-btn {
+            display: inline-block;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 0px;
+            top: 0px;
+            font-weight: bold;
+            font-size: 16px;
+            color: rgba(126, 121, 114, .4);
+            cursor: pointer;
+        }
+    }
+    .add-comment-modal-hint {
+        font-weight: bold;
+        font-size: 13px;
+        font-family: sans-serif;
+        color: rgba( 0, 0, 0, 0.8);
+    }
+    .add-comment-modal-hint:not(:last-child) {
+        display: inline-block;
+        width: 68px;
+    }
+    .modal-input {
+        font-size: 12px;
+    }
+    .modal-input:not(:last-child) {
+        display: inline-block;
+        width: 210px;
+    }
+    textarea.ant-input::-webkit-scrollbar{
+        width: 12px;
+        background-color: rgba(126, 121, 114, .4);
+    }
+    textarea.ant-input::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, .3);
+        background-color: #EEE6DB;
+    }
+    .ant-btn{
+        position: absolute;
+        right: 8px;
+        border-radius: 5px;
+        color: #6B6761;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        height: 30px;
+        color: rgba(107, 103, 97, 1);
+        border: 1px solid #FBF5B5;
+        background-color: transparent;
+        background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 60%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+        box-shadow: 2px 2px 3px rgba( 0, 0, 0, 0.2);
+    }
+    .ant-btn:hover, .ant-btn:focus{
+        color: #6B6761;
+        border: 1px solid #FBF5B5;
+        background-color: inherit;
+        background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 60%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+        color: black;
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px rgba( 0, 0, 0, 0.6);
+    }
+    
+    .ant-input {
+        border: solid 1px transparent;
+        &:hover, &:focus {
+            border: solid 1px rgba(107, 103, 97, 0.9);
+        }
+        &:focus{
+            border: solid 1px rgba(107, 103, 97, 0.9);
+            box-shadow: 1px 1px 1px rgba(107, 103, 97, 0.6);
+        }
+    }
+}
+
+
+
+
+.add-comment-modal-backgroud-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.modal-anime-enter, .modal-anime-appear {
+    z-index: 999;
+    left: 46%;
+    top: 48%;
+    transform: rotate(10deg);
+    background-color: transparent;
+    .add-commnet-modal-line-div {
+        opacity: 0.2;
+    }
+    .add-comment-modal-title {
+        opacity: 0.2;
+    }
+}
+.modal-anime-enter-active, .modal-anime-appear-active { 
+    z-index: 999;
+    opacity: 1;
+    left: 0;
+    top: 0;
+    transform: rotateX(0deg);
+    transition: all 1s ease-in;
+    .add-commnet-modal-line-div {
+        opacity: 0.8;
+    }
+    .add-comment-modal-title {
+        opacity: 0.8;
+    }
+}
+.ant-message-notice-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #6B6761;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba( 0, 0, 0, 0.2);
+}
+.modal-anime-enter-done {
+    left: 0;
+    top: 0;
+    background-color: rgba( 0, 0, 0, 0.2);
+    opacity: 1;
+    .add-commnet-modal-line-div {
+        opacity: 1;
+    }
+    .add-comment-modal-title {
+        opacity: 1;
+    }
+}
+
+.modal-anime-exit {
+    opacity: 1;
+}
+
+.modal-anime-exit-active {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.modal-anime-exit-done {
+    opacity: 0;
+}
+.paper-anime-enter, .paper-anime-appear {
+    top: 2px;
+    left: -5px;
+    transform: rotate(20deg);
+}
+.paper-anime-enter-active, .paper-anime-appear-active { 
+    top: 7px;
+    left: -10px;
+    transform: rotate(10deg);
+}
+
+.paper-anime-enter-done {
+    top: 7px;
+    left: -10px;
+    transform: rotate(10deg);
+}
+.paper-anime-exit {
+    opacity: 1;
+}
+
+.paper-anime-exit-active {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.paper-anime-exit-done {
+    opacity: 0;
+}

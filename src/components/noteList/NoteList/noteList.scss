@@ -1,0 +1,240 @@
+#note-list-main-div{
+    position: relative;
+    width: 100%;
+    height: calc(100% - 160px);
+    background-color: #ECE3D9;
+    padding-bottom: 5px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    scrollbar-face-color:  rgba( 116, 110, 103, 0.4);/*移动滑块颜色*/
+    scrollbar-track-color: #ECE3D9;/*背景颜色*/
+    scrollbar-arrow-color: #ddd;/*箭头颜色*/
+    z-index: 2;
+}
+#note-list-main-div::-webkit-scrollbar-track{
+    background-color: #ECE3D9;
+}/* 滚动条的滑轨背景颜色 */
+#note-list-main-div::-webkit-scrollbar{
+    border-radius: 5px;
+    width: 5px;
+    background-color: #ECE3D9;
+}
+#note-list-main-div::-webkit-scrollbar-thumb{
+    background-color:  rgba( 116, 110, 103, 0.4);
+}
+
+.note-body{
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+    max-height: 220px;
+    overflow: hidden;
+    background-color: transparent;
+    margin-bottom: 5px;
+    border-bottom: dotted 1px rgba( 116, 110, 103, 0.8);
+}
+.note-showdow{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+}
+.note-title-div{
+    height: 30px;
+    font-size: 12px;
+    text-align: left;
+    margin-left: 10px;
+}
+.note-tag, .note-title{
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+    * {
+        color: #886452;
+        line-height: 25px;
+    }
+}
+.note-tag{
+    width: auto;
+    line-height: 25px;
+    height: 25px;
+    padding: 0px 7px;
+    border-radius: 5px;
+    background-color: rgba( 136, 100, 82, 0.6);
+    color: #ECE3D9;
+}
+.note-title-div .note-title *{
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.note-introduce-div{
+    height: 75px;
+    padding: 5px 10px;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14px;
+    text-indent: 2rem;
+    // color:  rgba( 116, 110, 103, 0.6);
+    * {
+        color: #886452;
+    }
+}
+.note-icon-div{
+    text-align: left;
+    padding-left: 10px;
+    height: 10px;
+    font-size: 12px;
+    line-height: 10px;
+    color:  #886452;
+    margin-bottom: 6px;
+}
+#note-list-main-div .empty-div{
+    height: 180px;
+    border-color: rgba( 116, 110, 103, 0.6);
+}
+#note-list-main-div .empty-div img{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 240px;
+    height: 120px;
+}
+#note-list-main-div .empty-p{
+    margin-top: 10px;
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgba( 116, 110, 103, 0.6);
+}
+@media screen and (min-width: 1920px) {
+    .note-title-div .note-title *{
+        font-size: 18px;
+    }
+    .note-title-div{
+        height: 30px;
+        line-height: 30px;
+        .note-tag{
+            font-size: 16px;
+        }
+    }
+    h4{
+        font-size: 16px;
+    }
+    .note-icon-div{
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+    #note-list-main-div .empty-p{
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .note-body{
+        height: 135px;
+    }
+}
+@media screen and (max-width: 1280px) {
+    .note-title-div .note-title *{
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .note-tag{
+        font-size: 10px;
+    }
+    .note-introduce-div{
+        height: 60px;
+        padding: 5px 5px;
+        font-size: 12px;
+    }
+    .note-icon-div{
+        height: 10px;
+        font-size: 10px;
+        line-height: 10px;
+    }
+    #note-list-main-div .empty-p{
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .note-body{
+        height: 90px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .note-title-div .note-title *{
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .note-tag{
+        font-size: 12px;
+    }
+    .note-introduce-div{
+        height: 60px;
+        padding: 5px 5px;
+        font-size: 12px;
+    }
+    .note-icon-div{
+        height: 12px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    #note-list-main-div .empty-p{
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .note-body{
+        height: 90px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .note-title-div {
+        height: 30px;
+    }
+    .note-body{
+        width: 100%;
+        height: 140px;
+    }
+    .note-introduce-div {
+        margin-bottom: 5px;
+    }
+}
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
+    .note-title-div {
+        height: 30px;
+    }
+    .note-body{
+        width: 100%;
+        height: 140px;
+    }
+    .note-introduce-div {
+        margin-bottom: 5px;
+    }
+} 
+@media (device-width:375px) and (-webkit-min-device-pixel-ratio:2){
+    .note-title-div {
+        height: 30px;
+    }
+    .note-body{
+        width: 100%;
+        height: 140px;
+    }
+    .note-introduce-div {
+        margin-bottom: 5px;
+    }
+} 
+@media (min-device-height: 630px) 
+    and (max-device-height: 823px)
+    and (min-device-width: 375px)
+    and (max-device-width: 411px)  
+    and (-webkit-min-device-pixel-ratio:2){
+        .note-body{
+            width: 100%;
+            height: 140px;
+        }
+} 

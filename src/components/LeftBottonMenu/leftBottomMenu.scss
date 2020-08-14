@@ -1,0 +1,12 @@
+#left-botton-menu-main-div {
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    top: 10%;
+    .left-btn-wrap { 
+        &:not(last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}

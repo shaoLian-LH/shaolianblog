@@ -1,0 +1,22 @@
+#share-menu-main-div {
+    position: relative;
+    height: auto;
+    margin-top: 5px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    margin-right: 30px;
+    background-color: #ECE3D9;
+    text-align: left;
+    .share-menu-main-title {
+        display: block;
+        height: 30px;
+        color: #886452;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0;
+        padding-left: 10px;
+    }
+    .share-menu-body {
+        padding-left: 10px;
+    }
+}

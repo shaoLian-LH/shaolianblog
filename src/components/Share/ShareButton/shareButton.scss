@@ -1,0 +1,18 @@
+#share-button-item {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #886452;
+    color: #ECE3D9;
+    opacity: 0.8;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease-in;
+    &:hover {
+        opacity: 1;
+        font-size: 20px;
+    }
+}

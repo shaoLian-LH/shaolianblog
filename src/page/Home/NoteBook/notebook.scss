@@ -1,0 +1,116 @@
+#notebook-main-div{
+    position: absolute;
+    bottom: 200px;
+    left: 520px;
+}
+#book{
+    position: relative;
+    top: 0;
+    width: 120px;
+    height: 165px;
+    background-color: #E2DFCE;
+    transform: rotate(-16.12deg) skewX(-3deg);
+    box-shadow: -7px 18px 5px rgba(0, 0, 0, 1);
+    transition: 0.5s;
+    cursor: pointer;
+    h2{
+        position: absolute;
+        bottom: 50px;
+        left: 20px;
+        font-size: 1em;
+        line-height: 1em;
+        /*color: #fff;*/
+    }
+    .writer{
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        color: #262626;
+        font-size: 0.6rem;
+        padding-top: 5px;
+        font-weight: 500;
+        border-top-left-radius: 1px solid #262626;
+    }
+    .writer b{
+        font-weight: 700;
+    }
+    .cover{
+        position: absolute;
+        top: 0;
+        left: -19px;
+        width: calc(100% - 2px);
+        height: 70%;
+        background-size: cover;
+        h2{
+            display: inline-block;
+            width: 100%;
+            padding: 15px 5px;
+            color: #8D5A45;
+            background-color: #f2f2f2;
+        }
+    }
+}
+#book:hover{
+    transform: rotate(-16.12deg) skewX(-3deg) translate(10px, -10px);
+    box-shadow: -6px 19px 5px rgba(0, 0, 0, 1);
+}
+#book:hover .cover{
+    text-shadow: 1px 0px 0px #8D5A45;
+    transition: 0.5s;
+}
+#book:before{
+    content: '';
+    width: 11px;
+    height: 100%;
+    background: #886452;
+    position: absolute;
+    top: 0;
+    right: 52px;
+    box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
+    transform: skewY(-50deg) translate( -67.5px, -74px);
+}
+#book::after{
+    content: '';
+    width: 100%;
+    height: 13px;
+    background: #f2f2f2;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: skewX(-39.5deg) translate( 5px, 12.5px);
+}
+@media screen and (max-width: 1280px) {
+    #book{
+        width: 110px;
+        height: 145px;
+        background-color: #E2DFCE;
+        transform: rotate(-16.12deg) skewX(-3deg);
+        box-shadow: -7px 18px 5px rgba(0, 0, 0, 1);
+        transition: 0.5s;
+        cursor: pointer;
+    }
+    #book:before{
+        content: '';
+        width: 11px;
+        height: 100%;
+        box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 1);
+        transform: skewY(-50deg) translate( -58.5px, -63px);
+    }
+    #book::after{
+        content: '';
+        width: 100%;
+        height: 13px;
+        transform: skewX(-39.5deg) translate( 5px, 12.5px);
+    }
+}
+/* iphone6/7/8 plus */
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
+    
+} 
+@media (min-device-height: 630px) 
+    and (max-device-height: 823px)
+    and (min-device-width: 375px)
+    and (max-device-width: 411px)  
+    and (-webkit-min-device-pixel-ratio:2){
+       
+} 

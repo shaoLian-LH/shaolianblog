@@ -1,0 +1,70 @@
+.common-card-main-div {
+    height: auto;
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-right: 30px;
+    background-image: linear-gradient(135deg, #EBF4FF 5%, #9EAACD 10%, #EBF4FF 60%,#9BA6CD 5%,#EBF4FF 5%,#9BA6CD);
+    
+    h2 {
+        position: relative;
+        display: block;
+        min-height: 20px;
+        font-weight: bold;
+        width: 100%;
+        font-size: 18px;
+    }
+    .common-card-email {
+        position: relative;
+        display: block;
+        font-size: 12px;
+        width: 100%;
+        text-decoration: underline;
+    }
+    .common-card-content {
+        margin: 5px 0;
+        padding: 0;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        text-indent: 0.8rem;
+        font-size: 14px;
+        font-family: fantasy;
+    }
+    .common-card-time {
+        position: relative;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: normal;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+    }
+}
+.common-card-main-div:nth-of-type(odd)::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    left: calc( 50% - 5px );
+    top: -4px;
+    box-shadow: inset 1px 1px 4px rgba( 0, 0, 0, 0.4);
+}
+.common-card-main-div:nth-of-type(even)::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: lightpink;
+    transform: rotate(45deg);
+    left: calc( 50% - 5px );
+    top: -4px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 4px rgba( 0, 0, 0, 0.4);
+}
+.common-card-main-div:hover{
+    box-shadow: 5px 5px 10px rgba( 0, 0, 0, 0.4);
+}
