@@ -22,6 +22,15 @@
         font-family: Arial, Helvetica, sans-serif;
         color:rgba( 236, 227, 217, 0.8);
     }
+    .empty-content {
+        color:rgba( 236, 227, 217, 0.8);
+        font-size: 14px;
+        a {
+            color:rgba( 236, 227, 217, 1);
+            font-size: 14px;
+            font-weight: bolder;
+        }
+    }
     img{
         position: relative;
         display: block;

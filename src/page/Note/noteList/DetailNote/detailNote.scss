@@ -67,7 +67,7 @@ em > code {
     height: 100%;
     width: auto;
     min-width: 90%;
-    margin: 0px 10px;
+    margin: 0px 24px;
     text-align: center;
     overflow-x:hidden;
     overflow-y:auto;
@@ -247,7 +247,7 @@ em > code {
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (max-width: 1920px) {
     .detail-note-title h1{
         font-size: 22px;
         line-height: 22px;
@@ -353,23 +353,3 @@ em > code {
         font-size: 12px;
     }
 }
-@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2){
-    #detail-note-main-div{
-        margin-top: 26px;
-        height: calc(100% - 26px);
-        background-color: #F2F3F5;
-    }
-} 
-@media (min-device-height: 568px) 
-    and (max-device-height: 823px)
-    and (min-device-width: 320px)
-    and (max-device-width: 411px)  
-    and (-webkit-min-device-pixel-ratio:2){
-    #detail-note-main-div{
-        margin-top: 26px;
-        background-color: #F2F3F5;
-    }
-    .detail-note-disappear{
-        display: none;
-    }
-} 

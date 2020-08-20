@@ -1,13 +1,12 @@
 import React, { Fragment, createContext, useState, useEffect, FC, Dispatch } from 'react';
 import MyTitle from '@C/CustomerTitle';
 import './note.scss';
-import CommonNoteList from '@C/noteList/CommonNoteList';
-import DetailNote from '@C/noteList/DetailNote';
+import CommonNoteList from './noteList/CommonNoteList';
+import DetailNote from './noteList/DetailNote';
 import CommentBoard from '@/page/Comment/CommentBoard';
 import AddComment from '@/page/Comment/AddComment';
-import { Row, Col, Breadcrumb } from 'antd';
+import { Row, Col } from 'antd';
 import { useLocation } from 'react-router-dom';  
-import { HomeOutlined, FileSearchOutlined, FileTextOutlined } from '@ant-design/icons';
 import LeftBottomMenu from '@C/LeftBottonMenu';
 
 export interface INoteContextValues {
@@ -33,33 +32,6 @@ const Note: FC = () => {
         }
         // eslint-disable-next-line
     },[ articleId ])
-    const getBread = ()=>{
-        return (
-            <Breadcrumb>
-            <Breadcrumb.Item 
-                href='/' 
-                /*onClick={ ()=>{ if(isChanged){ setIsChanged(false) } } }*/>
-                <HomeOutlined /> 首页
-            </Breadcrumb.Item>
-            <Breadcrumb.Item 
-                href='/note' >
-                <FileSearchOutlined /> 笔记栏
-            </Breadcrumb.Item>
-            {
-                articleId.length !== 0
-                ?(
-                    <Breadcrumb.Item 
-                        href={ '/note/detail?id='+articleId  }
-                        /*onClick={ ()=>{ if(isChanged){ setIsChanged(false) } } }*/>
-                        <FileTextOutlined /> 笔记
-                    </Breadcrumb.Item>
-                )
-                :''
-            }
-        </Breadcrumb>
-        )
-    }
-
 
     return (
         <Fragment>
@@ -81,32 +53,23 @@ const Note: FC = () => {
                         <Col style = {{ "position":"absolute" }} xs={ 0 }  sm={ 0 }  md={ 24 } lg={ 24 } xl={ 24 }  xxl={ 24 }>
                             <AddComment className = { "note-page-addComment-component" } articleId = { articleId }/>
                         </Col>
-                        <Col xs={ 0 }  sm={ 2 }  md={ 2 } lg={ 2 } xl={ 2 }  xxl={ 2 }>
+                        <Col xs={ 0 }  sm={ 0 }  md={ 0 } lg={ 2 } xl={ 2 }  xxl={ 2 }>
                             <LeftBottomMenu />
                         </Col>
                         {
                             ! wantComment 
                             ?   <Fragment >
-                                    <Col xs={ 0 }  sm={ 6 }  md={ 6 } lg={ 6 } xl={ 6 }  xxl={ 6 }>
+                                    <Col xs={ 0 }  sm={ 0 }  md={ 0 } lg={ 6 } xl={ 6 }  xxl={ 6 }>
                                         <CommonNoteList />
                                     </Col>
-                                    <Col xs={ 0 }  sm={ 16 }  md={ 16 } lg={ 16 } xl={ 16 }  xxl={ 16 }>
+                                    <Col xs={ 24 }  sm={ 24 }  md={ 24 } lg={ 16 } xl={ 16 }  xxl={ 16 }>
                                         <DetailNote />
                                     </Col>
                                 </Fragment>
-                            :   <Col xs={ 0 }  sm={ 22 }  md={ 22 } lg={ 22 } xl={ 22 }  xxl={ 22 }>
+                            :   <Col xs={ 22 }  sm={ 22 }  md={ 22 } lg={ 22 } xl={ 22 }  xxl={ 22 }>
                                     <CommentBoard className = "note-comment-board"/>
                                 </Col>
                         }
-                        <Col xs={ 24 }  sm={ 0 }  md={ 0 } lg={ 0 } xl={ 0 }  xxl={ 0 }>
-                            <div className = "bread-main-div">
-                                {
-                                    getBread()
-                                }
-                            </div>
-                            <CommonNoteList />
-                            <DetailNote />
-                        </Col>
                     </Row>
                 </div>
             </NoteArticleContext.Provider>

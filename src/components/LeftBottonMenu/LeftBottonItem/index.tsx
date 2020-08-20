@@ -15,7 +15,7 @@ const LeftBottonItem: FC<ILeftBottonItemProps> = (props) => {
         <Link 
             title = { props.title === undefined ? "首页": props.title } 
             key = { props.target === undefined ? "link-to-index": `link-to-${ props.target }` } 
-            to = { props.target === undefined ? "/blog" : props.target } 
+            to = { props.target === undefined ? "/" : props.target } 
             className = "left-btn-wrap" 
             onClick = { ()=>{ if(props.onClick !== undefined){ props.onClick() }  } }
         >

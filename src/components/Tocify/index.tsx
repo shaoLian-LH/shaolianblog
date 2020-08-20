@@ -1,9 +1,7 @@
-import React from 'react';
-import { Anchor } from 'antd';
 import { last } from 'lodash';
-
-const { Link } = Anchor;
-
+import React from 'react';
+import './tocify.scss';
+import $ from 'jquery';
 export interface TocItem {
   anchor: string;
   level: number;
@@ -13,27 +11,54 @@ export interface TocItem {
 
 export type TocItems = TocItem[]; // TOC目录树结构
 
-export default class Tocify {
+class Tocify {
   tocItems: TocItems = [];
-  targetContainer : HTMLElement;
+  targetContainer : string;
   index: number = 0;
+  choiceItem: string = '';
 
   constructor() {
     this.tocItems = [];
     this.index = 0;
-    this.targetContainer = document.body;
+    this.targetContainer = '';
+    this.choiceItem = '';
   }
+
   setContainer(target :string){
-    this.targetContainer = document.getElementById(target)===null
-                          ? document.body
-                          : document.getElementById(target) as HTMLElement;
+    this.targetContainer = target;
   }
+
+  changeChoiceItem(targetAnchor: string) {
+    if(targetAnchor !== this.choiceItem) {
+      let pre;
+      if(this.choiceItem === ''){
+        pre = $(`.active-li`);
+      } else {
+        pre = $(`.${this.choiceItem}`);
+      }
+      if(pre) {
+        pre.removeClass('active-li');
+      }
+      this.choiceItem = targetAnchor;
+      const next = $(`.${targetAnchor}`);
+      if(next) {
+        next.addClass('active-li');
+      }
+    }
+  }
+
   add(text: string, level: number) {
     const anchor = `toc${level}${++this.index}`;
     const item = { anchor, level, text };
     const items = this.tocItems;
 
-    if (items.length === 0) { // 第一个 item 直接 push
+    // 没有选择目标时获取遍历的第一个anchor
+    if(this.choiceItem === '') {
+      this.choiceItem = anchor;
+    }
+
+    // 第一个 item 直接 push
+    if (items.length === 0) { 
       items.push(item);
     } else {
       let lastItem = last(items) as TocItem; // 最后一个 item
@@ -64,21 +89,54 @@ export default class Tocify {
   reset = () => {
     this.tocItems = [];
     this.index = 0;
+    this.choiceItem = '';
   };
 
-  renderToc(items: TocItem[]) { // 递归 render
+  
+  // 解决在hash中无法跳转的问题
+  scrollToTagetDoc = (item: TocItem) => {
+    if (item.anchor && !item.children) {
+      let anchorElement = document.getElementById(item.anchor) as HTMLElement;
+      // 如果对应id的锚点存在，就跳转到锚点
+      if(anchorElement) { 
+        anchorElement.scrollIntoView(
+          { 
+            behavior: "smooth", 
+            block: "start", 
+            inline: "nearest"
+          }
+        ); 
+      }
+      this.choiceItem = item.anchor;
+      
+    }
+  }
+
+  // 递归 render
+  renderToc(items: TocItem[]) { 
     return items.map(item => (
-      <Link key={item.anchor} href={`#${item.anchor}`} title={item.text}>
-        {item.children && this.renderToc(item.children)}
-      </Link>
+      <ul 
+        key = { `ul-${item.anchor}` } 
+      >
+        <li 
+          className = { this.choiceItem === item.anchor ? `active-li ${item.anchor}` : `normal-li ${item.anchor}` }
+          key = { item.anchor }
+          onClick = { () => { this.scrollToTagetDoc(item) } }
+          > 
+            { item.text }
+            {item.children && this.renderToc(item.children)}
+        </li>
+      </ul>
     ));
   }
 
   render() {
     return (
-      <Anchor getContainer = { ()=>this.targetContainer } affix = { false } showInkInFixed={ false } >
-         {this.renderToc(this.tocItems)}
-      </Anchor>
+      <div className = 'tocify-div'>
+         { this.renderToc(this.tocItems) }
+      </div>
     );
   }
 }
+
+export default Tocify;

@@ -1,4 +1,4 @@
-import React,{ useState , Fragment, useEffect, useContext, FC} from 'react';
+import React,{ useState , Fragment, useEffect, useContext, FC, useRef} from 'react';
 import { Row, Col } from 'antd';
 import marked from 'marked';
 import hljs from 'highlight.js';
@@ -10,26 +10,45 @@ import Empty from '@C/Empty';
 import { NoteArticleContext, INoteContextValues } from '@/page/Note';
 import Share from '@C/Share';
 import './detailNote.scss';
+import $ from 'jquery';
+
 // 详细笔记页面
 const DetailNote: FC =() => {
     const ctx = useContext(NoteArticleContext) as unknown as INoteContextValues;
 
     // 判断当前页面是否为初次渲染
-    const [ articleId, setArticleId ] = useState('');
+    const [ articleId, setArticleId ] = useState<string>('');
+    const [ articleTitle, setArticleTitle ] = useState<string>('');
+    const [ articleDesc, setArticleDesc ] = useState<string>('');
 
-    const [ articleTitle, setArticleTitle ] = useState('');
-    const [ articleDesc, setArticleDesc ] = useState('');
     // 将标题和内容的markdown标签进行解析与渲染
-    const [ htmlTitle, setHtmltitle ] = useState("");
-    const [ htmlContext, setHtmlContext ] = useState("");
+    const [ htmlTitle, setHtmltitle ] = useState<any>("");
+    const [ htmlContext, setHtmlContext ] = useState<any>("");
+    
     // 导航插件
     const tocify = new Tocify();
+    const tocifyRef = useRef<Tocify>();
     const renderer = new marked.Renderer();
+    // 记录锚点数组
+    const anchorGroup = useRef<string[]>([]);
+    // 最近到达的锚点
+    const currentChoiceAnchor = useRef<string>('');
+    // 辅助查询页面向下还是向上
+    const scrollDelta = useRef<number>(0);
 
     renderer.heading = function (text, level, raw){
         tocify.setContainer('detail-note-main-div');
         const anchor = tocify.add(text, level);
-        return `<a id="${ anchor }" href="${ anchor }" class="anchor-fix"><h${level}>${ text }</h${level}></a>\n`;
+        tocifyRef.current = tocify;
+        // 防止同个锚点被多次加入
+        if(anchorGroup.current.indexOf(anchor) === -1){
+            anchorGroup.current.push(anchor);
+        }
+        // 初始应该被选择的锚点
+        if(currentChoiceAnchor.current === '') {
+            currentChoiceAnchor.current = anchor;
+        }
+        return `<p id="${ anchor }" class="anchor-fix"><h${level}>${ text }</h${level}></p>\n`;
     }
     marked.setOptions({
         renderer: renderer,
@@ -51,22 +70,65 @@ const DetailNote: FC =() => {
     useEffect(()=>{
         if( ctx.articleId.length !== 0 ){
             loadArticle();
-            setArticleId(ctx.articleId);
+            setArticleId((id)=>{
+                if(id !== ctx.articleId) {
+                    return ctx.articleId
+                } else {
+                    return id;
+                }
+            });
             if(!ctx.isChanged){
                 ctx.setIsChanged(true);
             }
         }
+        return (()=>{
+            $('.detail-note-show').off('scroll', onDivScorll);
+        })
         // eslint-disable-next-line
     },[ ctx.articleId ])
 
+    // 监听滚动
+    const onDivScorll = () => {
+        let father = document.querySelector('#detail-note-main-div') as HTMLElement;
+        let index = anchorGroup.current.indexOf(currentChoiceAnchor.current);
+        if(scrollDelta.current - father.scrollTop < 0){
+            // 向后查询
+            let nextItem = anchorGroup.current[ index + 1 ];
+            let target = document.getElementById(`${nextItem}`);
+            scrollDelta.current = father.scrollTop;
+            if(target && father.scrollTop - target.offsetTop > 20) {
+                if(nextItem) {
+                    currentChoiceAnchor.current = nextItem;
+                    tocify.changeChoiceItem(nextItem);
+                }
+            }
+        } else {
+            // 向前查询
+            let preItem = anchorGroup.current[ index - 1 ];
+            let target = document.getElementById(`${preItem}`);
+            scrollDelta.current = father.scrollTop;
+            if(target && father.scrollTop - target.offsetTop < 20) {
+                if(preItem) {
+                    currentChoiceAnchor.current = preItem;
+                    tocify.changeChoiceItem(preItem);
+                }
+            }
+        }
+        
+    }
+
+    // 获取博客数据
     const loadArticle = ()=>{
         Fetch.get(CONSTURL.GET_ARTICLE_BY_ID + ctx.articleId)
         .then((res)=>{
             let data = res.data.data;
+            anchorGroup.current = [];
+            currentChoiceAnchor.current = '';
             setArticleTitle(data.title);
             setArticleDesc(data.introduce);
             setHtmltitle(data.title);
             setHtmlContext(data.content);
+            $('.detail-note-show').on('scroll', onDivScorll);
         })
     }
     
@@ -75,7 +137,7 @@ const DetailNote: FC =() => {
             <Row
                 justify = "center"
             >
-                <Col xs={ 24 }  sm={ 24 }  md={ 18 } lg={ 18 } xl={ 18 }  xxl={ 18 }>
+                <Col xs={ 24 }  sm={ 24 }  md={ 16 } lg={ 16 } xl={ 16 }  xxl={ 18 }>
                     <div id='detail-note-main-div' className = { !ctx.isChanged?'detail-note-disappear':'detail-note-show' }>
                         <div className = 'detail-note-title'
                             dangerouslySetInnerHTML = {{ __html : marked(htmlTitle) }}
@@ -88,7 +150,7 @@ const DetailNote: FC =() => {
                         </div>
                     </div>
                 </Col>
-                <Col xs={ 0 }  sm={ 0 }  md={ 6 } lg={ 6 } xl={ 6 }  xxl={ 6 }>
+                <Col xs={ 0 }  sm={ 0 }  md={ 8 } lg={ 8 } xl={ 8 }  xxl={ 6 }>
                     <div id="detailed-nav">
                         <div className="nav-tiitle">笔记导航</div>
                         { tocify && tocify.render() }
@@ -107,8 +169,8 @@ const DetailNote: FC =() => {
         <Fragment>
             {
                 articleId.length === 0
-                    ? <Empty emptyTitle = "目前还未选择笔记呢" />
-                    : getDetailNote()
+                ? <Empty emptyTitle = "目前还未选择笔记呢" />
+                : getDetailNote()
             }
         </Fragment>
     )

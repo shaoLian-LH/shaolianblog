@@ -76,6 +76,8 @@ const Postcard: FC = () => {
                                             className = "friend-link" 
                                             key = { `friend-link-${tIndex}` } 
                                             href = { templinkO.link } 
+                                            target = "_blank" 
+                                            rel = "noopener noreferrer"
                                         >
                                             {
                                                 (templinkO.imgName !== undefined && templinkO.imgName !== "")

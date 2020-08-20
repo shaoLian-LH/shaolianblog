@@ -3,7 +3,7 @@ import { QqOutlined } from '@ant-design/icons';
 import './shareButton.scss';
 
 interface IShareButtonProps {
-    className: string,
+    className?: string,
     onClick: Function,
     icon: any
 }
@@ -14,7 +14,7 @@ const ShareButton: FC<IShareButtonProps> = (props) => {
         <div 
             id="share-button-item" 
             className = { props.className !== undefined ? props.className :'' } 
-            onClick = { ()=>{ ()=>{ props.onClick() } } } 
+            onClick = { () => { props.onClick() } } 
         >
             { props.icon !== undefined ? props.icon : <QqOutlined /> }
         </div>

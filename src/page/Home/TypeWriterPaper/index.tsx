@@ -1,10 +1,12 @@
-import React, { useEffect, useState, FC } from 'react';
+import React, { FC } from 'react';
 import { useInterval } from '@/hooks/useInterval';
 import './typeWriterPaper.scss';
 import $ from 'jquery';
+/**
+ * 动态答应欢迎提示语
+ */
 const TypeWriterPaper: FC = () => {
 
-    const [ isInitial, changeIsInitial ] = useState(false);
     let words = ["Welcome to my blog","Click the note book","Search what you want"];
     let part, i = 0, offset = 0, len = words.length, skip_count=0,skip_delay=5, speed = 80;    
     
@@ -28,14 +30,6 @@ const TypeWriterPaper: FC = () => {
             }   
         }
     }, speed);
-
-    useEffect(()=>{
-        if(!isInitial){
-            changeIsInitial(true);
-        }
-        // eslint-disable-next-line
-    },[ isInitial ])
-
 
     return (
         <div id="welcome-pepar-main-div">

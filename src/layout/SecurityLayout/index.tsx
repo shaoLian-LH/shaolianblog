@@ -1,4 +1,6 @@
 import React, { Component, ErrorInfo } from 'react';
+import { Link } from 'react-router-dom';
+import Empty from '@C/Empty';
 
 interface ISecurityLayoutState {
     hasError: boolean,
@@ -24,13 +26,17 @@ class SecurityLayout extends Component<any, ISecurityLayoutState> {
     }
 
     render(){
-        const { hasError, msg } = this.state;
+        const { hasError } = this.state;
         if(hasError) {
             return (
-                <h1>{ msg }</h1>
+                <Empty 
+                    emptyTitle = '发生了未知的错误？！' 
+                    content = { <p>回到<Link to = '/'>首页</Link>看看</p> }
+                />
             )
+        } else {
+            return this.props.children;
         }
-        return this.props.children;
     }
 }
 

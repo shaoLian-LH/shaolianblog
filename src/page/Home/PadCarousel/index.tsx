@@ -38,7 +38,7 @@ const PadCarousel: FC = () => {
             return (
                 <Link
                     key = { item.articleId } 
-                    to = { `/blog/note?detail&id=${item.articleId}`} 
+                    to = { `/note?detail&id=${item.articleId}`} 
                 >
                     <div className="carousel-banner-div" >
                         <img className="carousel-banner-img" src={  item.imgName!==undefined?CONSTURL.SOURCE_PRE+item.imgName:'../../image/cat.png' } alt = { "图没了" } />
