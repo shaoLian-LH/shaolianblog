@@ -45,9 +45,6 @@
     font-weight: bold;
     color: black;
 }
-.hljs-string, .hljs-type, .hljs-built_in, .hljs-builtin-name, .hljs-selector-id, .hljs-selector-attr, .hljs-selector-pseudo, .hljs-addition, .hljs-variable, .hljs-template-variable{
-    color: black;
-}
 p > code{
     display: inline-block;
     padding: 2px 5px;
@@ -127,9 +124,8 @@ em > code {
         width: 100%;
         padding: 5px 10px;
         margin: 5px 0;
-        background: transparent;
-        border-top: solid 2px rgba( 116, 110, 103, 0.8);
-        border-bottom: solid 2px rgba( 116, 110, 103, 0.8);
+        background: #201E2F;
+
         &::-webkit-scrollbar-track{
             background-color: #ECE3D9;
         }
@@ -153,6 +149,7 @@ em > code {
         font-size: 14px;
         line-height: 20px;
         overflow-y:hidden;
+        color: #F2F2F2;
         span{
             line-height: 150%;
         }
