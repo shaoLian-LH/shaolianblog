@@ -49,7 +49,7 @@ const Postcard: FC = () => {
             <div className = "author-intro-div">
                 <img 
                     className = "author-img" 
-                    src = "img/article/8f072d3ff68f48b8b270930d6908a421.jpg" 
+                    src = {`${CONSTURL.SOURCE_PRE}8f072d3ff68f48b8b270930d6908a421.jpg`}
                     alt="这池子不行的.jpg"
                 />
                 <p className = "author-name">邵莲</p>

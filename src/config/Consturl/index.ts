@@ -1,4 +1,5 @@
-const prePath = '/sl';
+// const prePath = '/sl';
+const prePath = 'https://yuudachi.cn:444/';
 // 请求时的URL设置
 let CONSTURL = {
     // 获取所有文章的基础信息
@@ -18,7 +19,7 @@ let CONSTURL = {
     // 评论操作
     COMMENTS_OPERATION : `${prePath}comment`,
     // 资源前缀
-    SOURCE_PRE : "img/article/",
+    SOURCE_PRE : "https://yuudachi.cn:444/static/images/article/",
 }
 
 export default CONSTURL;

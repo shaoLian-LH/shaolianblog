@@ -3,7 +3,7 @@ import About from '@/page/About';
 import Comment from '@/page/Comment';
 import Note from '@/page/Note';
 
-interface IBaseConfigProps {
+export interface IBaseConfigProps {
     path: string,
     exact : boolean,
     component: React.ComponentType<any>

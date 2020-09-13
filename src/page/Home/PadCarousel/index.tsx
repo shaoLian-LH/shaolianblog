@@ -34,7 +34,7 @@ const PadCarousel: FC = () => {
 
 
     const getCarouselChilds = ()=>{
-        return bannerList.map((item: ICarouselItem)=>{
+        return bannerList ? bannerList.map((item: ICarouselItem)=>{
             return (
                 <Link
                     key = { item.articleId } 
@@ -46,7 +46,12 @@ const PadCarousel: FC = () => {
                     </div>
                 </Link>
             )
-       });
+       }): (
+            <Link
+                key = 'nullLink'
+                to = '/'
+            ></Link>
+       )
     }
     return (
         <div id = "carousel-main-div">
