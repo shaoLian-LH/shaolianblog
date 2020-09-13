@@ -10,6 +10,12 @@
     scrollbar-track-color: #ECE3D9;/*背景颜色*/
     scrollbar-arrow-color: #ddd;/*箭头颜色*/
     z-index: 2;
+    
+    img {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
 }
 #note-list-main-div::-webkit-scrollbar-track{
     background-color: #ECE3D9;

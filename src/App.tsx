@@ -11,7 +11,7 @@ const App: FC = () => {
   return (
     <div className = "app-main-div">
         <Table />
-        <HRouter basename = "/blog">
+        <HRouter>
           <SecurityLayout>
             <Switch>
               {
