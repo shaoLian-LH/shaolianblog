@@ -19,7 +19,7 @@ let CONSTURL = {
     // 评论操作
     COMMENTS_OPERATION : `${prePath}comment`,
     // 资源前缀
-    SOURCE_PRE : "https://yuudachi.cn:444/static/images/article/",
+    SOURCE_PRE : "http://shaolianblog.oss-cn-hangzhou.aliyuncs.com/blog/article/",
 }
 
 export default CONSTURL;

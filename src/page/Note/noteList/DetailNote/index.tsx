@@ -6,7 +6,6 @@ import 'highlight.js/styles/monokai-sublime.css';
 import Tocify from '@C/Tocify';
 import CONSTURL from '@/config/Consturl';
 import Fetch from '@/config/Fetch';
-import Empty from '@C/Empty';
 import { NoteArticleContext, INoteContextValues } from '@/page/Note';
 import Share from '@C/Share';
 import './detailNote.scss';
@@ -169,7 +168,7 @@ const DetailNote: FC =() => {
         <Fragment>
             {
                 articleId.length === 0
-                ? <Empty emptyTitle = "目前还未选择笔记呢" />
+                ? ''
                 : getDetailNote()
             }
         </Fragment>
