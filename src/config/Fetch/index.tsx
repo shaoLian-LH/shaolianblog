@@ -9,7 +9,7 @@ let a = axios.create({
     },
 });
 axiosRetry(a, {
-    retries: 3,
+    retries: 2,
     retryCondition: (error) => {
         return (error.config.method === 'get' || error.config.method === 'post')
     }
