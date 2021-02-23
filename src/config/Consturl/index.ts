@@ -1,5 +1,9 @@
 // const prePath = '/sl';
-const prePath = 'https://yuudachi.cn:444/';
+let tempPath = 'https://yuudachi.cn:444/';
+if (process.env.NODE_ENV === 'development') { 
+    tempPath = 'https://dev.blog.yuudachi.cn:444/';
+}
+const prePath = tempPath;
 // 请求时的URL设置
 let CONSTURL = {
     // 获取所有文章的基础信息
