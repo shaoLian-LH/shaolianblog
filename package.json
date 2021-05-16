@@ -6,6 +6,8 @@
   "dependencies": {
     "@ant-design/icons": "4.0.0",
     "@babel/core": "7.9.0",
+    "@sentry/browser": "^6.3.6",
+    "@sentry/webpack-plugin": "^1.15.1",
     "@svgr/webpack": "4.3.3",
     "babel-plugin-named-asset-import": "^0.3.6",
     "camelcase": "^5.3.1",
@@ -144,7 +146,6 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
-    "puppeteer": "^8.0.0",
     "react-helmet": "^6.1.0",
     "react-masonry-component": "^6.2.1",
     "react-transition-group": "^4.4.1",

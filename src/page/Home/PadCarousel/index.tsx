@@ -28,7 +28,8 @@ const PadCarousel: FC = () => {
     const loadBannerInfos = ()=>{
         Request.get(CONSTURL.GET_ALL_BANNERS)
         .then((res)=>{
-            setBannerList(res.data.banners);
+            const Res = res as unknown as any;
+            setBannerList(Res.banners.a);
         });
     }
 
