@@ -7,7 +7,8 @@ import Empty from '@C/Empty';
 import 'highlight.js/styles/monokai-sublime.css';
 import './noteList.scss';
 import { NoteArticleContext, INoteContextValues } from '@/page/Note';
-
+import Fetch from '@/config/Fetch'
+ 
 interface INoteListItemProps {
     id: string,
     tagName: string,
@@ -52,6 +53,17 @@ const NoteList: FC<INoteListProps> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[ props ])
 
+    const handleClick = (id: string) => {
+        ctx.setArticleId(id); 
+        if( !ctx.isChanged ){ 
+            ctx.setIsChanged(true);   
+        } 
+        const userId = localStorage.getItem('userId')
+        if (userId) {
+            Fetch.get(`http://121.199.23.187:8011/server/upBp?userId=${userId}&locationPointId=${1}`)
+        }
+    }
+
     return (
         <div id="note-list-main-div">
          {   isLoading 
@@ -63,7 +75,7 @@ const NoteList: FC<INoteListProps> = (props) => {
                         <Link
                             key = { item.id }
                             to = { "/note?detail&id="+item.id } 
-                            onClick = { ()=>{ ctx.setArticleId(item.id); if(!ctx.isChanged){ ctx.setIsChanged(true);   } } }
+                            onClick = { ()=>{ handleClick(item.id) } }
                             > 
                             <div className = "note-body" >
                                 <div className="note-title-div">
