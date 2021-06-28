@@ -1,23 +1,26 @@
-import './config/monitor'
 import React from 'react';
 import ReactDom from 'react-dom';
 import './styles/index.scss';
 import App from './App';
-import pkg from '../package.json'
+import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react'
 
-let userId = Number(localStorage.getItem('userId'))
-if (!userId) {
-  userId = Math.floor(Math.random() * 9999999)
-  localStorage.setItem('userId', String(userId))
-}
+const tarckBase = 'http://121.199.23.187:86'
 
-window.localStorage.wmUserInfo = JSON.stringify({ 
-  userId, 
-  userTag: '游客', 
-  projectVersion: pkg.version
+const instance = createInstance({
+  urlBase: tarckBase,
+  siteId: 1,
+  heartBeat: { // optional, enabled by default
+    active: true, // optional, default value: true
+    seconds: 10 // optional, default value: `15
+  },
+  configurations: { // optional, default value: {}
+    // any valid matomo configuration, all below are optional
+    setRequestMethod: 'POST'
+  },
 })
-
 ReactDom.render(
-  <App />,
+  <MatomoProvider value={instance}>
+    <App />
+  </MatomoProvider>,
   document.getElementById('shaolian')
 )
