@@ -7,7 +7,6 @@ import Empty from '@C/Empty';
 import 'highlight.js/styles/monokai-sublime.css';
 import './noteList.scss';
 import { NoteArticleContext, INoteContextValues } from '@/page/Note';
-import Fetch from '@/config/Fetch'
  
 interface INoteListItemProps {
     id: string,
@@ -58,10 +57,6 @@ const NoteList: FC<INoteListProps> = (props) => {
         if( !ctx.isChanged ){ 
             ctx.setIsChanged(true);   
         } 
-        const userId = localStorage.getItem('userId')
-        if (userId) {
-            Fetch.get(`http://121.199.23.187:8011/server/upBp?userId=${userId}&locationPointId=${1}`)
-        }
     }
 
     return (
