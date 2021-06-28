@@ -7,7 +7,7 @@ import $ from 'jquery';
  */
 const TypeWriterPaper: FC = () => {
 
-    let words = ["Welcome to my blog","Click the note book","Search what you want"];
+    let words = ["Welcome to my blog matomo","Click the note book","Search what you want"];
     let part, i = 0, offset = 0, len = words.length, skip_count=0,skip_delay=5, speed = 80;    
     
     useInterval(function(){
