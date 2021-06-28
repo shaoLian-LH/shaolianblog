@@ -12,6 +12,7 @@ const App: FC = () => {
   
   useEffect(() => {
     trackPageView({})
+    console.log('matomo')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
