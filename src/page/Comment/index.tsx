@@ -1,11 +1,16 @@
-import React, { Fragment, FC } from 'react';
+import React, { Fragment, FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './comment.scss';
 import CommentBoard from './CommentBoard';
 import AddComment from './AddComment';
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 const Comment: FC<any> = ()=>{
-    
+    const { trackPageView } = useMatomo()
+    useEffect(() => {
+        trackPageView({})
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <Fragment>
             <Link 
